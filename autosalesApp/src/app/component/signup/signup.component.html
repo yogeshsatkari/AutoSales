@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>SignUp Form</h2>
+    <form [formGroup]="signupFormGroup" (ngSubmit)="sendSignupData()" class="flex-container">
+        <div class="blue">
+            <div>
+                <label>Name </label>
+                <input type="text" formControlName="userName">
+            </div>
+            <div >
+                <label>Email-id </label>
+                <input type="text" formControlName="emailId">
+            </div>
+            <div>
+                <label>Password </label>
+                <input type="text" formControlName="password">
+            </div>
+            <div >
+                <input class="btn btn-success" type="submit" [disabled]="signupFormGroup.invalid" value="Signup"/>
+            </div>
+        </div>
+        <div class="error-message">
+            <div *ngIf="emailId.invalid">
+                **Email-id is required
+            </div>   
+            <div *ngIf="password.invalid">
+                **Password is required
+            </div>  
+        </div> 
+    </form>
+    <div id="submitResponse">{{messageOnSubmit}}</div>
+</div>

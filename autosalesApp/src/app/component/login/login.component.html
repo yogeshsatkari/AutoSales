@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Login Form</h2>
+    <form [formGroup]="loginFormGroup" (ngSubmit)="loginCheck()" class="flex-container">
+        <div class="blue">
+            <div >
+                <label>Email-id </label>
+                <input type="text" formControlName="emailId">    <!-- pattern=".+@niit\.com" -->
+            </div>
+            <div>
+                <label>Password </label>
+                <input type="text" formControlName="password">
+            </div>
+           <div>
+            <input class="btn btn-success" type="submit" [disabled]="loginFormGroup.invalid" value="Login">
+           </div>
+        </div>
+        <div class="error-message">
+            <div *ngIf="emailId.invalid">
+                **Email-id is required
+            </div>   
+            <div *ngIf="password.invalid">
+                **Password is required
+            </div>  
+        </div> 
+    </form>
+    <div id="submitResponse">{{messageOnSubmit}}</div>
+</div>
+

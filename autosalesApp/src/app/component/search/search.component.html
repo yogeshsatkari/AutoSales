@@ -1,0 +1,25 @@
+<div  style="display:flex; margin: 20px 5px; justify-content: center;">
+    <input type="search"  style="border-radius: 4px; height: 40px; width: 50em;" (ngModelChange)="searchUsers(key.value)" #key="ngModel" ngModel name="key" id="searchName" placeholder="Search Users  ( enter username or email-id )" required>
+ </div>
+
+<div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="font-size: large;color: rgb(74, 71, 71);">Sr.No</th>
+                    <th style="font-size: large;color: rgb(74, 71, 71);">Username</th>
+                    <th style="font-size: large;color: rgb(74, 71, 71);">Email-Id</th>
+                    <th style="font-size: large;color: rgb(74, 71, 71);">Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{user.userName}}</td>
+                    <td>{{user.emailId}}</td>
+                    <td *ngIf="user.image"><img style="width:100px; border-radius:5%;" src="data:image/jpeg;base64,{{user.image}}" alt=""></td>
+                    <td *ngIf="!user.image"><img style="width:100px; border-radius:5%;" src="../../../assets/profile.jpg" alt=""></td>
+                </tr>
+            </tbody>
+        </table>
+</div>
